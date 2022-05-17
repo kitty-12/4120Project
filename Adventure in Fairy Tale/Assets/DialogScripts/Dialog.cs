@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class Dialog : MonoBehaviour
 {
+    public bool needClick = true;
     public TextMeshProUGUI textDisplay;
-    public string[] sentences;
+    [TextArea(1,3)] public string[] sentences;
     public float typeSpeed = 0.02f;
     public GameObject continueButton;
     public GameObject closeButton;
@@ -18,7 +21,13 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        StartCoroutine(Type());
+        if(!needClick)
+        {
+            StartCoroutine(Type());
+            Button btn = (Button)continueButton.GetComponent<Button>();
+            btn.onClick.AddListener(NextSentence);
+        }     
+            
     }
 
     // Update is called once per frame
@@ -39,18 +48,35 @@ public class Dialog : MonoBehaviour
     public void NextSentence(){
         source.Play();
         continueButton.SetActive(false);
+        Debug.Log("Continue!");
         if(id < sentences.Length - 1) {
             id++;
             textDisplay.text = "";
             StartCoroutine(Type());
         } else {
             textDisplay.text = "";
+            Button btn = (Button)continueButton.GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
             panel.SetActive(false);
-            continueButton.SetActive(false);
         }
     }
 
     public void ClosePanel(){
+        source.Play();
+        Button btn = (Button)continueButton.GetComponent<Button>();
+        btn.onClick.RemoveAllListeners();
         panel.SetActive(false);
+        id = 0;
+    }
+
+    public void restart()
+    {
+        id = 0;
+        textDisplay.text = "";
+        //Debug.Log(sentences[1]);
+        panel.SetActive(true);
+        StartCoroutine(Type());
+        Button btn = (Button)continueButton.GetComponent<Button>();
+        btn.onClick.AddListener(NextSentence);
     }
 }
