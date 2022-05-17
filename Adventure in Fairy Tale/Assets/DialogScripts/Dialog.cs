@@ -23,11 +23,11 @@ public class Dialog : MonoBehaviour
         source = GetComponent<AudioSource>();
         if(!needClick)
         {
+            panel.SetActive(true);
             StartCoroutine(Type());
             Button btn = (Button)continueButton.GetComponent<Button>();
             btn.onClick.AddListener(NextSentence);
-        }     
-            
+        }            
     }
 
     // Update is called once per frame
@@ -61,6 +61,7 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    /*
     public void ClosePanel(){
         source.Play();
         Button btn = (Button)continueButton.GetComponent<Button>();
@@ -68,15 +69,18 @@ public class Dialog : MonoBehaviour
         panel.SetActive(false);
         id = 0;
     }
-
+    */
     public void restart()
     {
-        id = 0;
-        textDisplay.text = "";
-        //Debug.Log(sentences[1]);
-        panel.SetActive(true);
-        StartCoroutine(Type());
-        Button btn = (Button)continueButton.GetComponent<Button>();
-        btn.onClick.AddListener(NextSentence);
+        if(!panel.activeSelf)
+        {
+            id = 0;
+            textDisplay.text = "";
+            //Debug.Log(sentences[1]);
+            panel.SetActive(true);
+            StartCoroutine(Type());
+            Button btn = (Button)continueButton.GetComponent<Button>();
+            btn.onClick.AddListener(NextSentence);
+        }
     }
 }

@@ -21,6 +21,7 @@ public class PopGuide : MonoBehaviour
     void Update()
     {
         Vector3 direction = player.transform.position - transform.position;
+        /*
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction.normalized,out hit, range))
         {
@@ -35,13 +36,19 @@ public class PopGuide : MonoBehaviour
                 //Debug.Log("Too Far");
             }
         }
+        */
+        if(Vector3.SqrMagnitude(direction)< range)
+            tip.SetActive(true);
+        else
+            tip.SetActive(false);
     }
 
     void OnMouseDown() {
-        if(dialogue != null)
+        Debug.Log("Click on object!");
+        if(dialogue != null && tip.activeSelf)
         {
             dialogue.GetComponent<Dialog>().restart();
-            Debug.Log("Click on object!");
+            Debug.Log("Dialog Start");
         }
     }
 }

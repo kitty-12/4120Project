@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Beginning.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: e983552168e224dea8215909eb703265
+  - enabled: 1
+    path: Assets/Scenes/RotHome.unity
+    guid: 873f57f45dbd24afdb58e9b2cd377091
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 3312fbaa3630b488b93460947f9b6e70
+  - enabled: 1
+    path: Assets/Scenes/Cabin.unity
+    guid: a2c5aa1d052ce294ca977dae412b968d
   m_configObjects: {}
