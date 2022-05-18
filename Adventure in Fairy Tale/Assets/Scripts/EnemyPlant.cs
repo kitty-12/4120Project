@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class EnemyPlant : MonoBehaviour
 {
     public GameObject player;
@@ -14,8 +15,11 @@ public class EnemyPlant : MonoBehaviour
 
     private float health;
 
+    public TextMeshProUGUI LevelText;
+
     public Slider HealthSlider;
     public float MaxHealth;
+    public int Level;
 
     private bool isAttacking = false;
     // Start is called before the first frame update
@@ -24,6 +28,7 @@ public class EnemyPlant : MonoBehaviour
         HealthSlider.maxValue = MaxHealth;
         health = MaxHealth;
         HealthSlider.value = health;
+        LevelText.text = "Lv."+Level.ToString();
     }
 
     // Update is called once per frame
