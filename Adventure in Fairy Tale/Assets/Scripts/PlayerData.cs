@@ -13,6 +13,11 @@ public class PlayerData : MonoBehaviour
     [Header("UIComponents")]
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
+
+    [Header("Others")]
+    public Animator anim;
+
+    private bool NormalAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +27,14 @@ public class PlayerData : MonoBehaviour
         healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
 
+    void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(NormalAtk());
+        }
+    }
+
     // Update is called once per frame
     public void TakeDamage(float Damage)
     {
@@ -29,7 +42,9 @@ public class PlayerData : MonoBehaviour
         healthSlider.value = curHealth;
         if (curHealth<=0)
         {
-            Application.LoadLevel(2);
+            curHealth = 0;
+            StartCoroutine(Death());
+            //Application.LoadLevel(2);
         }
         healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
@@ -40,5 +55,19 @@ public class PlayerData : MonoBehaviour
             curHealth=MaxHealth;
         healthSlider.value=curHealth;
         healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+    }
+
+    IEnumerator NormalAtk(){
+        NormalAttacking = true;
+        anim.SetBool("NormalAtk",true);
+        yield return new WaitForSeconds(1.5f);
+        anim.SetBool("NormalAtk",false);
+        NormalAttacking = false;
+    }
+    IEnumerator Death(){
+        anim.SetBool("Death",true);
+        yield return new WaitForSeconds(4);
+        Application.LoadLevel(2);
+        anim.SetBool("Death",false);
     }
 }
