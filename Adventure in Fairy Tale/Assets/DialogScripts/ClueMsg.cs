@@ -13,6 +13,7 @@ public class ClueMsg : MonoBehaviour
     [TextArea(1,3)] public string message;
     public GameObject panel;
     public string clueName;
+    public float stayTime = 3.0f;
     private bool isFound = false;
     private AudioSource source;
     void Start()
@@ -35,10 +36,11 @@ public class ClueMsg : MonoBehaviour
             Debug.Log("UpdateClueNum.Instance.IsFound: "+ UpdateClueNum.Instance.IsFound(name));
             panel.SetActive(true);
             UpdateClueNum.Instance.Increace(name);
+            textDisplay.text = "Find CLUE: ";
             textDisplay.text += message;
             textDisplay.text += UpdateClueNum.Instance.GetProgress();
             isFound = true;
-            Invoke("Disappear", 2.0f);
+            Invoke("Disappear", stayTime);
         }
         else
         {
