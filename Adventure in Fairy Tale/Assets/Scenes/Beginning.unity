@@ -161,8 +161,8 @@ MonoBehaviour:
   - ()
   typeSpeed: 0.02
   continueButton: {fileID: 818190720}
-  closeButton: {fileID: 1303812988}
   panel: {fileID: 1469288660}
+  clueMsg: {fileID: 0}
 --- !u!4 &8677476
 Transform:
   m_ObjectHideFlags: 0
@@ -368,9 +368,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 308020671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d6c8b3f910b495eab97d2e8a005e34, type: 3}
+  m_Script: {fileID: 11500000, guid: 7979cf3af04e04a43b6d8421386d9316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplay: {fileID: 2025955200}
+  panel: {fileID: 1469288660}
+  continueButton: {fileID: 818190720}
 --- !u!4 &308020673
 Transform:
   m_ObjectHideFlags: 0
@@ -920,8 +923,8 @@ MonoBehaviour:
   - '"What is it"'
   typeSpeed: 0.02
   continueButton: {fileID: 818190720}
-  closeButton: {fileID: 1303812988}
   panel: {fileID: 1469288660}
+  clueMsg: {fileID: 0}
 --- !u!4 &836132561
 Transform:
   m_ObjectHideFlags: 0
@@ -1478,14 +1481,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1303812991}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 308020671}
+      - m_Target: {fileID: 308020672}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2621,7 +2624,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 009b9f48a477a2a4ab577cb2c1cf61fe, type: 3}
   m_PrefabInstance: {fileID: 855171822}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8296172668897967084
+--- !u!114 &8296172668897967088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2630,9 +2633,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8296172668897967079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5e54f221fcb419baa4c81b57025a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54cb160d2b88b4a51afeaec24f7570c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 857910385}
   range: 5
-  dialogue: {fileID: 836132558}
+  textDisplay: {fileID: 2025955200}
+  panel: {fileID: 1469288660}
+  continueButton: {fileID: 818190720}
+  sentence: '"Fairy Tales in... Ohh.."'

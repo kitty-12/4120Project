@@ -12,8 +12,10 @@ public class Dialog : MonoBehaviour
     [TextArea(1,3)] public string[] sentences;
     public float typeSpeed = 0.02f;
     public GameObject continueButton;
-    public GameObject closeButton;
+    //public GameObject closeButton;
     public GameObject panel;
+
+    public GameObject clueMsg;
     private int id;
 
     private AudioSource source;
@@ -58,6 +60,10 @@ public class Dialog : MonoBehaviour
             Button btn = (Button)continueButton.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
             panel.SetActive(false);
+            if(clueMsg!=null)
+            {
+                clueMsg.GetComponent<ClueMsg>().Appear();
+            }       
         }
     }
 
