@@ -7,7 +7,7 @@ public class Wolf : MonoBehaviour
     public GameObject player;
     public Animator anim;
 
-    public PlayerData data;
+    public Player data;
     
     public float minDamage;
     public float maxDamage;

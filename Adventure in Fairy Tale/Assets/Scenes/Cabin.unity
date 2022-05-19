@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 79434750}
   - component: {fileID: 79434749}
   - component: {fileID: 79434748}
-  - component: {fileID: 79434747}
+  - component: {fileID: 79434754}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Player
@@ -145,26 +145,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &79434747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79434746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345cd8eb238224020b534db8c5c367b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
-  curHealth: 100
-  healthSlider: {fileID: 1931794711}
-  healthText: {fileID: 1023866775}
-  anim: {fileID: 79434752}
-  FireSpellPrefab: {fileID: 689728088}
-  IceSpellPrefab: {fileID: 406150472}
-  selectedEnemy: {fileID: 0}
 --- !u!114 &79434748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +243,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79434754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79434746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f33d780577de4992ba2bbad06b44e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  curHealth: 0
+  healthSlider: {fileID: 1931794711}
+  healthText: {fileID: 1023866775}
+  anim: {fileID: 79434752}
+  FireSpellPrefab: {fileID: 689728088}
+  IceSpellPrefab: {fileID: 406150472}
+  selectedEnemy: {fileID: 0}
 --- !u!1 &109379478
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 79434746}
   anim: {fileID: 266951746}
-  data: {fileID: 79434747}
+  data: {fileID: 0}
   minDamage: 50
   maxDamage: 60
 --- !u!195 &266951749
