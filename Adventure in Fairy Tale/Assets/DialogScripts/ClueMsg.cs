@@ -31,14 +31,14 @@ public class ClueMsg : MonoBehaviour
     public void Appear()
     {
         source.Play();
-        if((!isFound) && (!UpdateClueNum.Instance.IsFound(name)))
+        if((!isFound) && (!ClueCounter.Instance.IsFound(name)))
         {
-            Debug.Log("UpdateClueNum.Instance.IsFound: "+ UpdateClueNum.Instance.IsFound(name));
+            Debug.Log("UpdateClueNum.Instance.IsFound: "+ ClueCounter.Instance.IsFound(name));
             panel.SetActive(true);
-            UpdateClueNum.Instance.Increace(name);
+            ClueCounter.Instance.Increace(name);
             textDisplay.text = "Find CLUE: ";
             textDisplay.text += message;
-            textDisplay.text += UpdateClueNum.Instance.GetProgress();
+            textDisplay.text += ClueCounter.Instance.GetProgress();
             isFound = true;
             Invoke("Disappear", stayTime);
         }

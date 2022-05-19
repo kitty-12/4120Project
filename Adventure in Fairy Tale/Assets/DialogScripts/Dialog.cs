@@ -7,7 +7,7 @@ using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-    public bool needClick = true;
+    //public bool needClick = true;
     public TextMeshProUGUI textDisplay;
     [TextArea(1,3)] public string[] sentences;
     public float typeSpeed = 0.02f;
@@ -23,13 +23,11 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        if(!needClick)
-        {
-            panel.SetActive(true);
-            StartCoroutine(Type());
-            Button btn = (Button)continueButton.GetComponent<Button>();
-            btn.onClick.AddListener(NextSentence);
-        }            
+        
+        //panel.SetActive(true);
+        //StartCoroutine(Type());
+        //Button btn = (Button)continueButton.GetComponent<Button>();
+        //btn.onClick.AddListener(NextSentence);          
     }
 
     // Update is called once per frame

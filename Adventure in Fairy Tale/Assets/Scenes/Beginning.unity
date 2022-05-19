@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8677476}
-  - component: {fileID: 8677475}
   - component: {fileID: 8677477}
+  - component: {fileID: 8677478}
   m_Layer: 0
   m_Name: Dialog Manager
   m_TagString: Untagged
@@ -141,28 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8677475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8677474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61bc7baa7f5934d6e9c97122b881ca2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needClick: 0
-  textDisplay: {fileID: 195169534}
-  sentences:
-  - (Oh, where am I ? I remember I was in ...)
-  - (Oh, I forgot...)
-  - (Oh, that's a floating book. Maybe I should take a look...)
-  typeSpeed: 0.01
-  continueButton: {fileID: 1834174503}
-  panel: {fileID: 1463393366}
-  clueMsg: {fileID: 0}
 --- !u!4 &8677476
 Transform:
   m_ObjectHideFlags: 0
@@ -274,6 +252,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8677478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b91636b218144779b0dbd8ffb6874c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Beginning
+  textDisplay: {fileID: 195169534}
+  sentences:
+  - (Oh, where am I ? I remember I was in ...)
+  - (Oh, I forgot...)
+  - (Oh, that's a floating book. Maybe I should take a look...)
+  typeSpeed: 0.02
+  continueButton: {fileID: 1834174503}
+  closeButton: {fileID: 1318145108}
+  panel: {fileID: 1463393366}
+  clueMsg: {fileID: 0}
 --- !u!1 &55177689
 GameObject:
   m_ObjectHideFlags: 0
