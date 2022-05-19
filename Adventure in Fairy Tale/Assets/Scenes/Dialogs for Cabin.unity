@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01edc7e3e18394030a6004e6c2a8d7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0
+  threshold: 0.7
   img: {fileID: 63612637}
   faceList:
   - {fileID: 21300000, guid: 79aad61d849724c56893d5cffccb4ca1, type: 3}
@@ -674,7 +674,7 @@ MonoBehaviour:
   - 
   nameOrder: 000000000000000001000000
   nameText: {fileID: 1831169210}
-  sceneName: Cabin
+  sceneName: Cabin Crazy
   textDisplay: {fileID: 462779884}
   sentences:
   - '"GET OUT! You shall NOT come back."'
