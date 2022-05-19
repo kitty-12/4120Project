@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 888282415800343862}
   - component: {fileID: 888282415800343861}
   - component: {fileID: 2599451516114316751}
+  - component: {fileID: 6072415797480065777}
   m_Layer: 0
-  m_Name: Book
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,6 +123,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6072415797480065777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888282415800343867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27223dee0830e485ab7308dbc1c00a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotItem: {fileID: 11400000, guid: 624b481540c554b68813fb3436d5c310, type: 2}
+  slotImage: {fileID: 888282415800343861}
+  slotNum: {fileID: 888282416432797022}
 --- !u!1 &888282416432797020
 GameObject:
   m_ObjectHideFlags: 0
