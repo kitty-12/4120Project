@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class EnemyPlant : MonoBehaviour
 {
     public GameObject player;
@@ -14,11 +15,20 @@ public class EnemyPlant : MonoBehaviour
 
     private float health;
 
+    public TextMeshProUGUI LevelText;
+
+    public Slider HealthSlider;
+    public float MaxHealth;
+    public int Level;
+
     private bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        HealthSlider.maxValue = MaxHealth;
+        health = MaxHealth;
+        HealthSlider.value = health;
+        LevelText.text = "Lv."+Level.ToString();
     }
 
     // Update is called once per frame
@@ -57,13 +67,16 @@ public class EnemyPlant : MonoBehaviour
             anim.SetBool("Spell",false);
         }
     }
-    public void takeOwnDamage(float Damage)
+    public void takeOwnDamage(float damage)
     {
-        health -= Damage;
+        health -= damage;
+        Debug.Log(health);
         if (health<=0)
         {
+            health = 0;
             anim.SetBool("Death",true);
             Destroy(gameObject,0.5f);
         }
+        HealthSlider.value = health;
     }
 }

@@ -15,11 +15,13 @@ public class PopGuide : MonoBehaviour
 
     //public GameObject panel;
     private GameObject player;
+    private bool mouseOver;
     // Start is called before the first frame update
     void Start()
     {
         tip.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
+        mouseOver = false;
     }
 
     // Update is called once per frame
@@ -42,10 +44,19 @@ public class PopGuide : MonoBehaviour
             }
         }
         */
-        if(Vector3.SqrMagnitude(direction)< range)
+        if(Vector3.SqrMagnitude(direction)< range || mouseOver)
             tip.SetActive(true);
         else
             tip.SetActive(false);
+    }
+
+    void OnMouseOver() {
+        //Debug.Log("Mouse is over!");
+        mouseOver = true;
+    }
+
+    void OnMouseExit() {
+        mouseOver = false;
     }
 
     void OnMouseDown() {
