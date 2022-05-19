@@ -14,6 +14,12 @@ public class ClueMsg : MonoBehaviour
     public GameObject panel;
     public string clueName;
     public float stayTime = 3.0f;
+
+    // Item
+    public Item thisItem;
+    public Inventory playerInventory;
+
+
     private bool isFound = false;
     private AudioSource source;
     void Start()
@@ -41,6 +47,7 @@ public class ClueMsg : MonoBehaviour
             textDisplay.text += ClueCounter.Instance.GetProgress();
             isFound = true;
             Invoke("Disappear", stayTime);
+            AddNewItem(); 
         }
         else
         {
@@ -55,5 +62,18 @@ public class ClueMsg : MonoBehaviour
     {
         textDisplay.text = "";
         panel.SetActive(false);
+    }
+
+    public void AddNewItem(){
+        if (!playerInventory.itemList.Contains(thisItem))
+        {
+            playerInventory.itemList.Add(thisItem);
+            InventoryManager.CreateNewItem(thisItem);
+        }
+        else
+        {
+            thisItem.itemHeld += 1;
+        }
+        InventoryManager.RefreshItem();
     }
 }
