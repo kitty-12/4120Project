@@ -44,7 +44,7 @@ public class ClueMsg : MonoBehaviour
             ClueCounter.Instance.Increace(name);
             textDisplay.text = "Find CLUE: ";
             textDisplay.text += message;
-            textDisplay.text += ClueCounter.Instance.GetProgress();
+            textDisplay.text += ClueCounter.Instance.GetProgressStr();
             isFound = true;
             Invoke("Disappear", stayTime);
             AddNewItem(); 
@@ -60,7 +60,7 @@ public class ClueMsg : MonoBehaviour
 
     void Disappear()
     {
-        textDisplay.text = "";
+        //textDisplay.text = "";
         panel.SetActive(false);
     }
 

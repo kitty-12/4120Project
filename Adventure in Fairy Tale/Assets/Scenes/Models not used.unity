@@ -500,6 +500,8 @@ MonoBehaviour:
   panel: {fileID: 1246716130}
   clueName: NPC1
   stayTime: 3
+  thisItem: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!1 &377152467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b91636b218144779b0dbd8ffb6874c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: RotHome
+  sceneName: Town
   textDisplay: {fileID: 243880755}
   sentences:
   - I need to find out where it is.

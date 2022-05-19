@@ -7,14 +7,18 @@ using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-    //public bool needClick = true;
+    public Image img;
+    public Sprite[] faceList;
+    public string[] nameList;
+    public int[] nameOrder;
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI textDisplay;
     [TextArea(1,3)] public string[] sentences;
     public float typeSpeed = 0.02f;
     public GameObject continueButton;
     //public GameObject closeButton;
     public GameObject panel;
-
+    public GameObject namePanel;
     public GameObject clueMsg;
     private int id;
 
@@ -23,11 +27,7 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        
-        //panel.SetActive(true);
-        //StartCoroutine(Type());
-        //Button btn = (Button)continueButton.GetComponent<Button>();
-        //btn.onClick.AddListener(NextSentence);          
+          
     }
 
     // Update is called once per frame
@@ -52,6 +52,12 @@ public class Dialog : MonoBehaviour
         if(id < sentences.Length - 1) {
             id++;
             textDisplay.text = "";
+            img.sprite = faceList[nameOrder[id]];
+            if(nameList[nameOrder[id]] == "")
+                namePanel.SetActive(false);
+            else
+                namePanel.SetActive(true);
+            nameText.text = nameList[nameOrder[id]];
             StartCoroutine(Type());
         } else {
             textDisplay.text = "";
@@ -80,6 +86,12 @@ public class Dialog : MonoBehaviour
         {
             id = 0;
             textDisplay.text = "";
+            img.sprite = faceList[nameOrder[id]];
+            if(nameList[nameOrder[id]] == "")
+                namePanel.SetActive(false);
+            else
+                namePanel.SetActive(true);
+            nameText.text = nameList[nameOrder[id]];
             //Debug.Log(sentences[1]);
             panel.SetActive(true);
             StartCoroutine(Type());

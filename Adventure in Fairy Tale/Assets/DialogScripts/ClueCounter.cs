@@ -6,7 +6,7 @@ public class ClueCounter
 {
     private int clueNum = 0;
     private Dictionary<string, int> clues = new Dictionary<string, int>();
-    private int totalNum = 7;
+    private int totalNum = 8;
     private static ClueCounter _instance;
     public static ClueCounter Instance
     {
@@ -46,10 +46,16 @@ public class ClueCounter
         return (clueNum == totalNum);
     }
 
-    public string GetProgress()
+    public string GetProgressStr()
     {
         double res = 100.0 * clueNum / totalNum;
         //string res = " ("+clueNum+" / "+totalNum+" )";
         return " "+ res.ToString("0.00")+"%";
+    }
+
+    public double GetProgress()
+    {
+        double res = 100.0 * clueNum / totalNum;
+        return res;
     }
 }
