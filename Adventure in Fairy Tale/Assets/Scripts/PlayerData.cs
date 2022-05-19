@@ -25,13 +25,23 @@ public class PlayerData : MonoBehaviour
     private bool NormalAttacking = false;
     private bool SpecialAttacking = false;
     private bool selected = false;
+
+    private int exp;
+    private int next_exp;
+    private int Level;
+    private int MaxLevel = 10;
+    private int HerbNum;
+    private bool BeenThere = false;
     // Start is called before the first frame update
     void Start()
     {
         healthSlider.maxValue = MaxHealth;
         curHealth = MaxHealth;
         healthSlider.value = curHealth;
-        healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+        Level =  5;
+        exp = 0;
+        next_exp = 50;
+        healthText.text = "Lv."+Level.ToString()+"    "+curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
 
     void Update() 
@@ -138,6 +148,22 @@ public class PlayerData : MonoBehaviour
                 selectedEnemy = hit.transform.gameObject;
                 selected = true;
             }
+        }
+    }
+    public void defeatEnemy(int EnemyLevel,int getMoney, int getHerb){
+        exp += EnemyLevel*10/(Level-EnemyLevel);
+
+    }
+
+    void OnTriggerEnter(Collider other){
+        if(other.tag=="CabinDoor"){
+            Application.LoadLevel(5);
+            if (BeenThere == false)
+                BeenThere = true;
+        }
+
+        if(other.tag=="TownDoor"){
+            Application.LoadLevel(2);
         }
     }
 }
