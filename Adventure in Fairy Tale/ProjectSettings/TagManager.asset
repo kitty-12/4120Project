@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Clue
   - Enemy
+  - CabinDoor
+  - TownDoor
   layers:
   - Default
   - TransparentFX
