@@ -8,6 +8,11 @@ public class PopGuide : MonoBehaviour
     public float range = 5.0f;
     public GameObject dialogue;
 
+    // Item
+    public Item thisItem;
+    public Inventory playerInventory;
+
+
     //public GameObject panel;
     private GameObject player;
     // Start is called before the first frame update
@@ -49,6 +54,20 @@ public class PopGuide : MonoBehaviour
         {
             dialogue.GetComponent<Dialog>().restart();
             Debug.Log("Dialog Start");
+            AddNewItem(); 
         }
+    }
+
+    public void AddNewItem(){
+        if (!playerInventory.itemList.Contains(thisItem))
+        {
+            playerInventory.itemList.Add(thisItem);
+            InventoryManager.CreateNewItem(thisItem);
+        }
+        else
+        {
+            thisItem.itemHeld += 1;
+        }
+        InventoryManager.RefreshItem();
     }
 }
