@@ -12,7 +12,7 @@ public class MovingEnemy : MonoBehaviour
 
     public float scanRange = 30.0f;
 
-    public PlayerData data;
+    public Player data;
     
     public float minDamage;
     public float maxDamage;
@@ -106,6 +106,7 @@ public class MovingEnemy : MonoBehaviour
             health = 0;
             StartCoroutine(Damage());
             anim.SetBool("Fall",true);
+            data.defeatEnemy(Level,500,0);
             Destroy(gameObject,1.0f);
         }
         HealthSlider.value = health;

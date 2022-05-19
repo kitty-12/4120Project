@@ -7,6 +7,11 @@ using TMPro;
 
 public class EnterPlot : MonoBehaviour
 {
+    public Image img;
+    public Sprite[] faceList;
+    public string[] nameList;
+    public int[] nameOrder;
+    public TextMeshProUGUI nameText;
     public string sceneName;
     public TextMeshProUGUI textDisplay;
     [TextArea(1,3)] public string[] sentences;
@@ -14,6 +19,7 @@ public class EnterPlot : MonoBehaviour
     public GameObject continueButton;
     public GameObject closeButton;
     public GameObject panel;
+    public GameObject namePanel;
     public GameObject clueMsg;
     private int id;
     private AudioSource source;
@@ -26,6 +32,12 @@ public class EnterPlot : MonoBehaviour
             panel.SetActive(true);
             closeButton.SetActive(false);
             FirstEnterChecker.Instance.AddRecord(sceneName);
+            img.sprite = faceList[nameOrder[id]];
+            if(nameList[nameOrder[id]] == "")
+                namePanel.SetActive(false);
+            else
+                namePanel.SetActive(true);
+            nameText.text = nameList[nameOrder[id]];
             StartCoroutine(Type());
             Button btn = (Button)continueButton.GetComponent<Button>();
             btn.onClick.AddListener(NextSentence);
@@ -58,6 +70,12 @@ public class EnterPlot : MonoBehaviour
         if(id < sentences.Length - 1) {
             id++;
             textDisplay.text = "";
+            img.sprite = faceList[nameOrder[id]];
+            if(nameList[nameOrder[id]] == "")
+                namePanel.SetActive(false);
+            else
+                namePanel.SetActive(true);
+            nameText.text = nameList[nameOrder[id]];
             StartCoroutine(Type());
         } else {
             closeButton.SetActive(true);
@@ -80,7 +98,7 @@ public class EnterPlot : MonoBehaviour
         panel.SetActive(false);
         id = 0;
     }
-    */
+    
     public void restart()
     {
         if(!panel.activeSelf)
@@ -94,4 +112,5 @@ public class EnterPlot : MonoBehaviour
             btn.onClick.AddListener(NextSentence);
         }
     }
+    */
 }

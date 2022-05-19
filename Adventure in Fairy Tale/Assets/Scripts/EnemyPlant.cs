@@ -8,7 +8,7 @@ public class EnemyPlant : MonoBehaviour
     public GameObject player;
     public Animator anim;
 
-    public PlayerData data;
+    public Player data;
     
     public float minDamage;
     public float maxDamage;
@@ -75,6 +75,7 @@ public class EnemyPlant : MonoBehaviour
         {
             health = 0;
             anim.SetBool("Death",true);
+            data.defeatEnemy(Level,100,1);
             Destroy(gameObject,0.5f);
         }
         HealthSlider.value = health;
