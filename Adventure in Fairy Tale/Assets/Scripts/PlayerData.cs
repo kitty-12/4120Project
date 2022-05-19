@@ -16,6 +16,10 @@ public class PlayerData : MonoBehaviour
 
     public int next_exp {get;set;}
 
+    public int power {get;set;}
+
+    public bool BeenThere {get;set;}
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +30,8 @@ public class PlayerData : MonoBehaviour
         Money = 500;
         exp = 0;
         next_exp = 500;
+        power = 100;
+        BeenThere = false;
         if(Instance == null){
             Instance = this;
             DontDestroyOnLoad(gameObject);

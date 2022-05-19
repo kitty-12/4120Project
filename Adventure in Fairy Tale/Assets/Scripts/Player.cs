@@ -9,7 +9,10 @@ public class Player : MonoBehaviour
     
     [Header("UIComponents")]
     public Slider healthSlider;
+    public Slider expSlider;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI PotionText;
+    public TextMeshProUGUI MoneyText;
 
     [Header("Others")]
     public Animator anim;
@@ -17,7 +20,9 @@ public class Player : MonoBehaviour
     public GameObject FireSpellPrefab;
     public GameObject IceSpellPrefab;
 
-    public GameObject selectedEnemy;
+    private GameObject transport;
+
+    private GameObject selectedEnemy;
 
     private bool NormalAttacking = false;
     private bool SpecialAttacking = false;
@@ -31,7 +36,8 @@ public class Player : MonoBehaviour
     private int MaxLevel = 10;
     private int HerbNum;
     private int money;
-    private bool BeenThere = false;
+
+
     // Start is called before the first frame update
 
     void Start()
@@ -40,6 +46,18 @@ public class Player : MonoBehaviour
         healthSlider.maxValue = MaxHealth;
         healthSlider.value = curHealth;
         healthText.text = "Lv."+Level.ToString()+"    "+curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+        PotionText.text = HerbNum.ToString();
+        MoneyText.text = "$"+money.ToString();
+        expSlider.maxValue = next_exp;
+        expSlider.value = exp;
+        transport = GameObject.Find("Respawn");
+        if (transport!=null){
+            if (PlayerData.Instance.BeenThere==false)
+                transport.SetActive(false);
+            else
+                transport.SetActive(true);
+        }
+        transport.SetActive(true);
     }
 
     void Update() 
@@ -53,6 +71,13 @@ public class Player : MonoBehaviour
                 selectedEnemy = null;
                 selected = false;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Heal(20);
+            HerbNum--;
+            PotionText.text = HerbNum.ToString();
+
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -83,7 +108,7 @@ public class Player : MonoBehaviour
         }
         healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
-    public void Heal(float Heal)
+    public void Heal(int Heal)
     {
         curHealth+=Heal;
         if(curHealth>MaxHealth)
@@ -115,9 +140,13 @@ public class Player : MonoBehaviour
     }
     IEnumerator Death(){
         anim.SetBool("Death",true);
+        money -= Random.Range(100,50*Level);
+        if (money<=0)
+            money = 0;
+        MoneyText.text = "$"+money.ToString();
+        yield return new WaitForSeconds(3.5f);
         curHealth = MaxHealth;
         setData();
-        yield return new WaitForSeconds(4);
         Application.LoadLevel(3);
         anim.SetBool("Death",false);
     }
@@ -152,7 +181,37 @@ public class Player : MonoBehaviour
         }
     }
     public void defeatEnemy(int EnemyLevel,int getMoney, int getHerb){
-        exp += EnemyLevel*10/(Level-EnemyLevel);
+        if (Level-EnemyLevel>=5)
+        {
+            exp+=1;
+        }
+        else
+        {
+            double add= EnemyLevel*50.0/(Level-EnemyLevel);
+            exp = exp + (int)add;
+        }
+        if (exp>=next_exp)
+        {
+            LevelUp();
+            healthText.text = "Lv."+Level.ToString()+"    "+curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+            healthSlider.maxValue = MaxHealth;
+            healthSlider.value = curHealth;
+        }
+        expSlider.maxValue = next_exp;
+        expSlider.value = exp;
+
+        if (getHerb>0)
+        {
+            HerbNum += Random.Range(0,getHerb);
+            Debug.Log(HerbNum);
+            PotionText.text = HerbNum.ToString();
+        }
+        if (Level>EnemyLevel)
+            money+=getMoney/(Level-EnemyLevel);
+        else
+            money+=getMoney;
+        MoneyText.text = "$"+money.ToString();
+
 
     }
 
@@ -160,13 +219,16 @@ public class Player : MonoBehaviour
         if(other.tag=="CabinDoor"){
             setData();
             Application.LoadLevel(5);
-            if (BeenThere == false)
-                BeenThere = true;
+            if (PlayerData.Instance.BeenThere==false)
+                PlayerData.Instance.BeenThere = true;
         }
 
         if(other.tag=="TownDoor"){
             setData();
             Application.LoadLevel(2);
+        }
+        if(other.tag == "Transport"){
+            transform.position = new Vector3(393,5,382);
         }
     }
     void setData(){
@@ -186,5 +248,20 @@ public class Player : MonoBehaviour
         next_exp = PlayerData.Instance.next_exp;
         HerbNum = PlayerData.Instance.HerbNum;
         money = PlayerData.Instance.Money;
+    }
+    void LevelUp(){
+        if (Level<MaxLevel)
+        {
+            exp = exp - next_exp;
+            next_exp +=100;
+            Level++;
+            MaxHealth+=20;
+            curHealth+=20;
+        }
+        else
+        {
+            exp = next_exp;
+        }
+
     }
 }

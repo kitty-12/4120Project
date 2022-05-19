@@ -15,6 +15,8 @@ public class Wolf : MonoBehaviour
     private bool isAttacking = false;
     private UnityEngine.AI.NavMeshAgent agent;
 
+    private bool isFirst = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +26,26 @@ public class Wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(this.transform.position,player.transform.position);
-        if (dist<=20.0f&&player!=null)
+        if (FirstEnterChecker.Instance.isFirst("Cabin Crazy"))
+            isFirst = true;
+        else
+            isFirst = false;
+        if (!isFirst)
         {
-            anim.SetBool("Run",true);
-            agent.destination = player.transform.position;
-        }
-        if (dist<=15.0f&&player!=null)
-        {
-            StartCoroutine(Attack());
-        }
-        if (player==null)
-        {
-            anim.SetBool("Run",false);
+            float dist = Vector3.Distance(this.transform.position,player.transform.position);
+            if (dist<=20.0f&&player!=null)
+            {
+                anim.SetBool("Run",true);
+                agent.destination = player.transform.position;
+            }
+            if (dist<=15.0f&&player!=null)
+            {
+                StartCoroutine(Attack());
+            }
+            if (player==null)
+            {
+                anim.SetBool("Run",false);
+            }
         }
     }
 
