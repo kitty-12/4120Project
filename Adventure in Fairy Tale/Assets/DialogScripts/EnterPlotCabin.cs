@@ -30,7 +30,6 @@ public class EnterPlotCabin : MonoBehaviour
         source = GetComponent<AudioSource>();
         if(ClueCounter.Instance.GetProgress() >= threshold && FirstEnterChecker.Instance.isFirst(sceneName))
         {
-            FirstEnterChecker.Instance.AddRecord(sceneName);
             panel.SetActive(true);
             closeButton.SetActive(false);
             img.sprite = faceList[nameOrder[id]];
@@ -78,6 +77,7 @@ public class EnterPlotCabin : MonoBehaviour
             StartCoroutine(Type());
         } else {
             closeButton.SetActive(true);
+            FirstEnterChecker.Instance.AddRecord(sceneName);
             textDisplay.text = "";
             Button btn = (Button)continueButton.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
