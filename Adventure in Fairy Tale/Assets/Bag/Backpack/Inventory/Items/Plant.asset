@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 347a871e81d98492c8135ae00d115a0f, type: 3}
-  m_Name: Sword
+  m_Name: Plant
   m_EditorClassIdentifier: 
-  itemName: Sword
-  itemImage: {fileID: 21300000, guid: af50dc4fa7b6d314895d0f8c79adb4a5, type: 3}
-  itemHeld: 2
-  itemInfo: This is a sword,  increase 1 attack power
-  equip: 1
+  itemName: Plant
+  itemImage: {fileID: 21300000, guid: 6a8b8ee61a5a748239504bf2d76e8835, type: 3}
+  itemHeld: 0
+  itemInfo: A plant that (quite likely) attacks people. Where does it grow naturally?
+  equip: 0

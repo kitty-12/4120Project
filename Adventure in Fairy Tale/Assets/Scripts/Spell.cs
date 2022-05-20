@@ -24,13 +24,16 @@ public class Spell : MonoBehaviour
             this.transform.LookAt(targetPos);
             float dis = Vector3.Distance(Target.transform.position,this.transform.position);
             if (start_dis-dis>=30.0f){
-                Destroy(gameObject);
+                Destroy(gameObject,1.0f);
             }
             if (dis > 2.0f){
                 transform.Translate(Vector3.forward*8.0f*Time.deltaTime);
             } else{
                 HitTarget();
             }
+        }
+        else{
+            Destroy(gameObject,1.0f);
         }
     }
     void HitTarget(){

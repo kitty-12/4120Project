@@ -20,6 +20,7 @@ public class EnemyPlant : MonoBehaviour
     public Slider HealthSlider;
     public float MaxHealth;
     public int Level;
+    private Color oldColor;
 
     private bool isAttacking = false;
     // Start is called before the first frame update
@@ -81,5 +82,15 @@ public class EnemyPlant : MonoBehaviour
             Destroy(gameObject,0.5f);
         }
         HealthSlider.value = health;
+    }
+    public void onSelected()
+    {
+        oldColor = HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color;
+        Color color = new Color(233f/255f, 79f/255f, 55f/255f);
+        HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = color;          
+    }
+    public void unSelected()
+    {
+        HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = oldColor;
     }
 }

@@ -441,11 +441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f33d780577de4992ba2bbad06b44e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
-  expSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  PotionText: {fileID: 0}
-  MoneyText: {fileID: 0}
+  healthSlider: {fileID: 2038264700}
+  expSlider: {fileID: 1614244803}
+  healthText: {fileID: 1339614159}
+  PotionText: {fileID: 2027415655}
+  MoneyText: {fileID: 92803300}
   anim: {fileID: 79434752}
   FireSpellPrefab: {fileID: 689728088}
   IceSpellPrefab: {fileID: 406150472}

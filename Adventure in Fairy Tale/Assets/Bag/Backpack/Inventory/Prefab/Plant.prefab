@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 888282415800343862}
   - component: {fileID: 888282415800343861}
   - component: {fileID: 2599451516114316751}
+  - component: {fileID: 6072415797480065777}
   m_Layer: 0
-  m_Name: Book
+  m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f88b07a2f5f3a41c1884d019e99e0dff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a8b8ee61a5a748239504bf2d76e8835, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -121,7 +122,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888282415800343861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6072415797480065777}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: ItemOnClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6072415797480065777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888282415800343867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27223dee0830e485ab7308dbc1c00a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotItem: {fileID: 11400000, guid: a6b35f822ab5e4a7195fb8749b23a586, type: 2}
+  slotImage: {fileID: 888282415800343861}
+  slotNum: {fileID: 888282416432797022}
 --- !u!1 &888282416432797020
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class MovingEnemy : MonoBehaviour
     private int destPoint = 0;
     private bool isPatroling = true;
     private bool takeD = false;
+    private Color oldColor;
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -121,5 +122,16 @@ public class MovingEnemy : MonoBehaviour
         anim.SetBool("Hit",true);
         yield return new WaitForSeconds(1.2f);
         anim.SetBool("Hit",false);
+    }
+
+    public void onSelected()
+    {
+        oldColor = HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color;
+        Color color = new Color(233f/255f, 79f/255f, 55f/255f);
+        HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = color;          
+    }
+    public void unSelected()
+    {
+        HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = oldColor;
     }
 }
