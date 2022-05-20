@@ -26,6 +26,7 @@ public class EnemyPlant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oldColor = HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color;
         HealthSlider.maxValue = MaxHealth;
         health = MaxHealth;
         HealthSlider.value = health;
@@ -85,8 +86,8 @@ public class EnemyPlant : MonoBehaviour
     }
     public void onSelected()
     {
-        oldColor = HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color;
-        Color color = new Color(233f/255f, 79f/255f, 55f/255f);
+        Color color = new Color(254f/255f, 255f/255f, 11f/255f);
+        Debug.Log("change color");
         HealthSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = color;          
     }
     public void unSelected()

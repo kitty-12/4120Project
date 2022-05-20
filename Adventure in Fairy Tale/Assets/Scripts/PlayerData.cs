@@ -20,6 +20,8 @@ public class PlayerData : MonoBehaviour
 
     public bool BeenThere {get;set;}
 
+    public bool AllCollected {get;set;}
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,6 +34,7 @@ public class PlayerData : MonoBehaviour
         next_exp = 500;
         power = 100;
         BeenThere = false;
+        AllCollected = false;
         if(Instance == null){
             Instance = this;
             DontDestroyOnLoad(gameObject);

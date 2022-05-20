@@ -66,11 +66,11 @@ public class Player : MonoBehaviour
         if (selected){
             Vector3 targetPos = new Vector3(selectedEnemy.transform.position.x,selectedEnemy.transform.position.y,selectedEnemy.transform.position.z);
             float dis = Vector3.Distance(selectedEnemy.transform.position,this.transform.position);
-            if (dis>= 30.0f){
+            if (dis>= 40.0f){
                 if (selectedEnemy.GetComponent<EnemyPlant>() == null)
-                    selectedEnemy.GetComponent<MovingEnemy>().onSelected();
+                    selectedEnemy.GetComponent<MovingEnemy>().unSelected();
                 else
-                    selectedEnemy.GetComponent<EnemyPlant>().onSelected();
+                    selectedEnemy.GetComponent<EnemyPlant>().unSelected();
                 selectedEnemy = null;
                 selected = false;
             }
@@ -230,9 +230,12 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.tag=="CabinDoor"){
             setData();
-            Application.LoadLevel(5);
             if (PlayerData.Instance.BeenThere==false)
                 PlayerData.Instance.BeenThere = true;
+            if (PlayerData.Instance.AllCollected==false)
+                Application.LoadLevel(5);
+            else
+                Application.LoadLevel(5);
         }
 
         if(other.tag=="TownDoor"){
