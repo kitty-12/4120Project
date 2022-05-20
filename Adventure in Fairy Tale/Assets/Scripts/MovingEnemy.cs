@@ -102,7 +102,7 @@ public class MovingEnemy : MonoBehaviour
     public void takeOwnDamage(float damage)
     {
         health -= damage;
-        Debug.Log(health);
+        Debug.Log(damage);
         if (health<=0)
         {
             health = 0;

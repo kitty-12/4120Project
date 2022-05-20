@@ -43,7 +43,7 @@ public class Spell : MonoBehaviour
         }
         else
         {
-            comp = Target.transform.GetComponent<EnemyPlant>();
+            comp = Target.transform.GetComponent<MovingEnemy>();
             if (comp!=null)
                 Target.transform.GetComponent<MovingEnemy>().takeOwnDamage(atk);
             else

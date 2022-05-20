@@ -25,11 +25,14 @@ public class EnterPlotFinal : MonoBehaviour
     public int openId;
     private int id;
     private AudioSource source;
+
+    public GameObject audio1;
+    public GameObject audio2;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
-
+        audio2.SetActive(false);
         panel.SetActive(true);
         closeButton.SetActive(false);
         continueButton.SetActive(false);
@@ -87,6 +90,8 @@ public class EnterPlotFinal : MonoBehaviour
             Button btn = (Button)continueButton.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
             panel.SetActive(false);       
+            audio1.SetActive(false);
+            audio2.SetActive(true);
         }
     }
 }

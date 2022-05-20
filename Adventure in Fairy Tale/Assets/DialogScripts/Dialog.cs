@@ -20,6 +20,7 @@ public class Dialog : MonoBehaviour
     public GameObject panel;
     public GameObject namePanel;
     public GameObject clueMsg;
+    public GameObject Msg;
     private int id;
 
     private AudioSource source;
@@ -67,7 +68,10 @@ public class Dialog : MonoBehaviour
             if(clueMsg!=null)
             {
                 clueMsg.GetComponent<ClueMsg>().Appear();
-            }       
+            }else if(Msg!=null)
+            {
+                Msg.GetComponent<Msg>().Appear();
+            }      
         }
     }
 

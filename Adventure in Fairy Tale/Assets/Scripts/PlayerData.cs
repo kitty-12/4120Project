@@ -40,7 +40,7 @@ public class PlayerData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else{
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
     }

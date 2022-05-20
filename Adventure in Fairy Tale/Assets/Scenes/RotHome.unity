@@ -273,6 +273,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 66324494}
+  Msg: {fileID: 0}
 --- !u!82 &10947272
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2961,6 +2962,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 1248742981}
+  Msg: {fileID: 0}
 --- !u!82 &467052540
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5116,6 +5118,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 1917043669}
+  Msg: {fileID: 0}
 --- !u!82 &892682160
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5622,6 +5625,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 159405746}
+  Msg: {fileID: 0}
 --- !u!82 &1012278334
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5936,10 +5940,11 @@ MonoBehaviour:
   textDisplay: {fileID: 96098033}
   sentences:
   - My God, who are you!?
-  - "Emmm, sorry, I'm looking for Rotk\xE4ppchen. "
-  - "There's no one named Rotk\xE4ppchen. Get OUT!"
+  - 'Emmm, sorry, I just want to ..... '
+  - "You are also looking for Rotk\xE4ppchen, right? There's no one named Rotk\xE4ppchen.
+    Get OUT!"
   - (Silence for some time...)
-  - "My daughter, Rotk\xE4ppchen, she's been mssing for weeks. Come and take a seat,
+  - "My daughter, Rotk\xE4ppchen, she's been missing for weeks. Come and take a seat,
     Rotk\xE4ppchen's friend..."
   typeSpeed: 0.02
   continueButton: {fileID: 2093159428}
@@ -5947,6 +5952,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 0}
+  Msg: {fileID: 0}
 --- !u!1 &1048438766
 GameObject:
   m_ObjectHideFlags: 0
@@ -8625,6 +8631,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 1451610524}
+  Msg: {fileID: 0}
 --- !u!1 &1457224306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9503,6 +9510,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 638608961}
+  Msg: {fileID: 0}
 --- !u!82 &1660369133
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9942,6 +9950,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 64018654525172398, guid: e29786fe3a099b74d8bc6ee48f2448b8, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64018654525172398, guid: e29786fe3a099b74d8bc6ee48f2448b8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e29786fe3a099b74d8bc6ee48f2448b8, type: 3}
 --- !u!4 &1703936089 stripped
@@ -10231,6 +10247,7 @@ MonoBehaviour:
   panel: {fileID: 1714377906}
   namePanel: {fileID: 321738161}
   clueMsg: {fileID: 1791155241}
+  Msg: {fileID: 0}
 --- !u!82 &1724708096
 AudioSource:
   m_ObjectHideFlags: 0

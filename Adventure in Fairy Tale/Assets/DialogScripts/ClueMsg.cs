@@ -48,6 +48,10 @@ public class ClueMsg : MonoBehaviour
             isFound = true;
             Invoke("Disappear", stayTime);
             AddNewItem(); 
+            if(ClueCounter.Instance.IsAllFound())
+            {
+                PlayerData.Instance.AllCollected = true;
+            }
         }
         else
         {
@@ -69,6 +73,7 @@ public class ClueMsg : MonoBehaviour
         {
             playerInventory.itemList.Add(thisItem);
             InventoryManager.CreateNewItem(thisItem);
+            thisItem.itemHeld += 1;
         }
         else
         {

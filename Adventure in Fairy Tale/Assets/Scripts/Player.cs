@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             else
                 transport.SetActive(true);
         }
-        transport.SetActive(true);
+        //transport.SetActive(true);
     }
 
     void Update() 

@@ -21,6 +21,7 @@ public class EnterPlot : MonoBehaviour
     public GameObject panel;
     public GameObject namePanel;
     public GameObject clueMsg;
+    public GameObject Msg;
     private int id;
     private AudioSource source;
     // Start is called before the first frame update
@@ -87,7 +88,10 @@ public class EnterPlot : MonoBehaviour
             if(clueMsg!=null)
             {
                 clueMsg.GetComponent<ClueMsg>().Appear();
-            }       
+            }else if(Msg!=null)
+            {
+                Msg.GetComponent<Msg>().Appear();
+            }     
         }
     }
 

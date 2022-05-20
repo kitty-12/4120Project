@@ -13,7 +13,10 @@ public class Rotkappchen : MonoBehaviour
 
     public Player data;
 
+    //public AudioSource back;
+
     public GameObject UI;
+    public GameObject Panel;
     
     public Slider HealthSlider;
     public TextMeshProUGUI BossName;
@@ -44,6 +47,8 @@ public class Rotkappchen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Panel.activeSelf)
+            StartAttack = true;
         if (StartAttack == true && !Dead)
         {
             UI.SetActive(true);
@@ -82,19 +87,19 @@ public class Rotkappchen : MonoBehaviour
                 data.TakeDamage(Random.Range(minDamage,maxDamage));
             }
             isAttacking = false;
-            agent.isStopped = false;
-            anim.SetBool("Walk",true);
-            agent.destination = player.transform.position;
             if (state == 0)
                 anim.SetBool("attack1",false);
             else
                 anim.SetBool("attack2",false);
+            agent.isStopped = false;
+            anim.SetBool("Walk",true);
+            agent.destination = player.transform.position;
         }
     }
 
     public void takeOwnDamage(float damage)
     {
-        health -= damage*10;
+        health -= damage*3;
         Debug.Log(health);
         if (health<=0)
         {
@@ -119,6 +124,6 @@ public class Rotkappchen : MonoBehaviour
     IEnumerator Dying()
     {
         yield return new WaitForSeconds(2.0f);
-        Application.LoadLevel(1);
+        Application.LoadLevel(7);
     }
 }

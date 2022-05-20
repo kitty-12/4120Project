@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bookcase
   itemImage: {fileID: 21300000, guid: 786af73303ee84378be57eccbbf97aa9, type: 3}
-  itemHeld: 0
-  itemInfo: She was named after the German for Little Red Riding Hood. Maybe it's
-    not a real name.
+  itemHeld: 1
+  itemInfo: 'She was named after the German for Little Red Riding Hood. '
   equip: 0
