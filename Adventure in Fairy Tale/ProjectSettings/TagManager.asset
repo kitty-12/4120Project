@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - CabinDoor
   - TownDoor
+  - Transport
   layers:
   - Default
   - TransparentFX
