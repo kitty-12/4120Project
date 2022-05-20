@@ -32,9 +32,6 @@ public class Spell : MonoBehaviour
                 HitTarget();
             }
         }
-        else{
-            Destroy(gameObject,1.0f);
-        }
     }
     void HitTarget(){
         Destroy(gameObject);

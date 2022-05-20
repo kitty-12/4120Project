@@ -55,7 +55,7 @@ public class Wolf : MonoBehaviour
         {
             isAttacking=true;
             anim.SetBool("Attack",true);
-            yield return new WaitForSeconds(2.2f);
+            yield return new WaitForSeconds(1.5f);
             float dist = Vector3.Distance(this.transform.position,player.transform.position);
             if (dist<8.0f)
                 data.TakeDamage(Random.Range(minDamage,maxDamage));
