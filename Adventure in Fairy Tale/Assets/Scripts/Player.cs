@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
             if (PlayerData.Instance.AllCollected==false)
                 Application.LoadLevel(5);
             else
-                Application.LoadLevel(5);
+                Application.LoadLevel(6);
         }
 
         if(other.tag=="TownDoor"){
