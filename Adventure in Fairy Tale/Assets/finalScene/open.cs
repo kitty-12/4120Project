@@ -8,4 +8,5 @@ public class open : MonoBehaviour
     {
         gameObject.GetComponent<Animation>().Play("opendoor");
     }
+
 }
