@@ -9,6 +9,7 @@ TagManager:
   - CabinDoor
   - TownDoor
   - Transport
+  - Boss
   layers:
   - Default
   - TransparentFX

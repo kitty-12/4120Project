@@ -180,9 +180,14 @@ public class Player : MonoBehaviour
                 //Debug.Log("here");
                 selectedEnemy = hit.transform.gameObject;
                 if (selectedEnemy.GetComponent<EnemyPlant>() == null)
+                {
                     selectedEnemy.GetComponent<MovingEnemy>().onSelected();
+                }
                 else
                     selectedEnemy.GetComponent<EnemyPlant>().onSelected();
+                selected = true;
+            } else if(hit.transform.gameObject.CompareTag("Boss")){
+                selectedEnemy = hit.transform.gameObject;
                 selected = true;
             }
         }
