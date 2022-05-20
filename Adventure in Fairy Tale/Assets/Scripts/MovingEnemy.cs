@@ -12,7 +12,7 @@ public class MovingEnemy : MonoBehaviour
 
     public float scanRange = 30.0f;
 
-    public PlayerData data;
+    public Player data;
     
     public float minDamage;
     public float maxDamage;

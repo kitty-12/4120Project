@@ -8,7 +8,7 @@ public class EnemyPlant : MonoBehaviour
     public GameObject player;
     public Animator anim;
 
-    public PlayerData data;
+    public Player data;
     
     public float minDamage;
     public float maxDamage;
@@ -35,7 +35,7 @@ public class EnemyPlant : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(this.transform.position,player.transform.position);
-        if (dist<=10){
+        if (dist<=15){
             //Vector3 player_pos = player.transform.position;
             //player_pos.Set(player_pos.x,-player_pos.y,player_pos.z);
             transform.LookAt(player.transform);
@@ -60,11 +60,13 @@ public class EnemyPlant : MonoBehaviour
         if (!isAttacking)
         {
             isAttacking=true;
-            anim.SetBool("Spell",true);
+            //anim.SetBool("Spell",true);
+            anim.SetBool("MeleeAttack",true);
             yield return new WaitForSeconds(1.2f);
             data.TakeDamage(Random.Range(minDamage,maxDamage));
             isAttacking=false;
-            anim.SetBool("Spell",false);
+            //anim.SetBool("Spell",false);
+            anim.SetBool("MeleeAttack",false);
         }
     }
     public void takeOwnDamage(float damage)
@@ -75,7 +77,7 @@ public class EnemyPlant : MonoBehaviour
         {
             health = 0;
             anim.SetBool("Death",true);
-            data.defeatEnemy(Level,100,1);
+            data.defeatEnemy(Level,100,2);
             Destroy(gameObject,0.5f);
         }
         HealthSlider.value = health;

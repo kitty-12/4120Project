@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cabin.unity
     guid: a2c5aa1d052ce294ca977dae412b968d
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: d8396056cebd044f7b54c8c9be46f18e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

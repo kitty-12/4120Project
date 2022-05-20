@@ -31,6 +31,7 @@ public class EnterPlot : MonoBehaviour
         {
             panel.SetActive(true);
             closeButton.SetActive(false);
+            continueButton.SetActive(false);
             FirstEnterChecker.Instance.AddRecord(sceneName);
             img.sprite = faceList[nameOrder[id]];
             if(nameList[nameOrder[id]] == "")
