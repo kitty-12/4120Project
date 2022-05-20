@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
 
 
     // Start is called before the first frame update
-
     void Start()
     {
         getData();
@@ -68,6 +67,10 @@ public class Player : MonoBehaviour
             Vector3 targetPos = new Vector3(selectedEnemy.transform.position.x,selectedEnemy.transform.position.y,selectedEnemy.transform.position.z);
             float dis = Vector3.Distance(selectedEnemy.transform.position,this.transform.position);
             if (dis>= 30.0f){
+                if (selectedEnemy.GetComponent<EnemyPlant>() == null)
+                    selectedEnemy.GetComponent<MovingEnemy>().onSelected();
+                else
+                    selectedEnemy.GetComponent<EnemyPlant>().onSelected();
                 selectedEnemy = null;
                 selected = false;
             }
@@ -106,7 +109,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Death());
             //Application.LoadLevel(2);
         }
-        healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+        healthText.text = "Lv."+Level.ToString()+"    "+curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
     public void Heal(int Heal)
     {
@@ -114,7 +117,7 @@ public class Player : MonoBehaviour
         if(curHealth>MaxHealth)
             curHealth=MaxHealth;
         healthSlider.value=curHealth;
-        healthText.text = curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
+        healthText.text = "Lv."+Level.ToString()+"    "+curHealth.ToString("F0")+"/"+MaxHealth.ToString("F0");
     }
 
     IEnumerator NormalAtk(){
@@ -176,6 +179,10 @@ public class Player : MonoBehaviour
             if(hit.transform.gameObject.CompareTag("Enemy")){
                 //Debug.Log("here");
                 selectedEnemy = hit.transform.gameObject;
+                if (selectedEnemy.GetComponent<EnemyPlant>() == null)
+                    selectedEnemy.GetComponent<MovingEnemy>().onSelected();
+                else
+                    selectedEnemy.GetComponent<EnemyPlant>().onSelected();
                 selected = true;
             }
         }
@@ -185,9 +192,14 @@ public class Player : MonoBehaviour
         {
             exp+=1;
         }
-        else
+        else if (Level>EnemyLevel)
         {
-            double add= EnemyLevel*50.0/(Level-EnemyLevel);
+            double add= EnemyLevel*30.0/(Level-EnemyLevel);
+            exp = exp + (int)add;
+        }
+        else if (Level<=EnemyLevel)
+        {
+            double add= EnemyLevel*30.0*(EnemyLevel-Level+1);
             exp = exp + (int)add;
         }
         if (exp>=next_exp)

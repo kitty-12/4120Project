@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Book
   itemImage: {fileID: 21300000, guid: f88b07a2f5f3a41c1884d019e99e0dff, type: 3}
   itemHeld: 0
-  itemInfo: 'This is a book. '
+  itemInfo: "Rotk\xE4ppchen has a book about the forest. She might be familiar with
+    it. "
   equip: 0
