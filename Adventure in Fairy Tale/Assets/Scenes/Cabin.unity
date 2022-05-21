@@ -1403,6 +1403,7 @@ MonoBehaviour:
   player: {fileID: 79434746}
   anim: {fileID: 266951746}
   data: {fileID: 79434754}
+  Panel: {fileID: 331190860}
   minDamage: 50
   maxDamage: 60
 --- !u!195 &266951749
@@ -5438,7 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4db5a0a40a6f4fbdab67cdf979f2f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.7
+  threshold: 0.5
   img: {fileID: 1269616497}
   faceList:
   - {fileID: 21300000, guid: 79aad61d849724c56893d5cffccb4ca1, type: 3}

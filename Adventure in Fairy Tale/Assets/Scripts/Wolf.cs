@@ -8,6 +8,7 @@ public class Wolf : MonoBehaviour
     public Animator anim;
 
     public Player data;
+    public GameObject Panel;
     
     public float minDamage;
     public float maxDamage;
@@ -21,12 +22,16 @@ public class Wolf : MonoBehaviour
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (Panel.activeSelf)
+            isFirst = true;
+        else
+            isFirst = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (FirstEnterChecker.Instance.isFirst("Cabin Crazy"))
+        if (Panel.activeSelf)
             isFirst = true;
         else
             isFirst = false;

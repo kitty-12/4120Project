@@ -3163,7 +3163,7 @@ MonoBehaviour:
   textDisplay: {fileID: 650593707}
   sentences:
   - Where is this place? It's like the place where I see the port book but more beautiful.
-  - NANDE KISAMA HA KOKONI IRU?  (Japannese)
+  - NANDE KISAMA HA KOKONI IRU?  (Japanese)
   - "!!!? What are you talking about? Are you Rotk\xE4ppchen? "
   - GO AWAY!!!
   typeSpeed: 0.01
@@ -5329,7 +5329,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

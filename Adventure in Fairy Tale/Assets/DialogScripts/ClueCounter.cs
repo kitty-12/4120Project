@@ -55,7 +55,12 @@ public class ClueCounter
 
     public double GetProgress()
     {
+<<<<<<< HEAD
         double res = clueNum / totalNum;
+=======
+        double res = 1.0*clueNum / totalNum;
+        Debug.Log(res);
+>>>>>>> 6287843 (final version)
         return res;
     }
 }

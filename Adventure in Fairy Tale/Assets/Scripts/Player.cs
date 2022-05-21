@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             else
                 transport.SetActive(true);
         }
-        //transport.SetActive(true);
+        transport.SetActive(true);
     }
 
     void Update() 
@@ -147,10 +147,10 @@ public class Player : MonoBehaviour
         if (money<=0)
             money = 0;
         MoneyText.text = "$"+money.ToString();
-        yield return new WaitForSeconds(3.5f);
         curHealth = MaxHealth;
         setData();
         Application.LoadLevel(3);
+        yield return new WaitForSeconds(3.5f);
         anim.SetBool("Death",false);
     }
 

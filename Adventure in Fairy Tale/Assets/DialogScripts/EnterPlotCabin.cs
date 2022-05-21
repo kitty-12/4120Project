@@ -28,8 +28,10 @@ public class EnterPlotCabin : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        Debug.Log("Clue Here Next");
         if(ClueCounter.Instance.GetProgress() >= threshold && FirstEnterChecker.Instance.isFirst(sceneName))
         {
+            //Debug.Log(ClueCounter.Instance.GetProgress());
             panel.SetActive(true);
             closeButton.SetActive(false);
             img.sprite = faceList[nameOrder[id]];
