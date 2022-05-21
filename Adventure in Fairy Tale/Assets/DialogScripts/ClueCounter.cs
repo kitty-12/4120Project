@@ -55,7 +55,7 @@ public class ClueCounter
 
     public double GetProgress()
     {
-        double res = 100.0 * clueNum / totalNum;
+        double res = clueNum / totalNum;
         return res;
     }
 }
